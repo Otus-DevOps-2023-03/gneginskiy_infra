@@ -4,6 +4,12 @@
 #### Homework for Lecture #5: Introduction to Cloud Infrastructure and Cloud Services
 
 ------------------------------------------------------
+
+**bastion_IP = 51.250.75.7**<br>
+**someinternalhost_IP = 10.128.0.34**
+
+------------------------------------------------------
+
 #### Connecting to the internal host via bastion:
 Command to log into bastion host: <br>
 `ssh appuser@51.250.75.7`
@@ -41,12 +47,12 @@ we can assign the command to an alias. this can be done by adding the alias in a
 
 and then, add the line below and save file:
 
-`alias ssh_internalhost='ssh -t -A appuser@51.250.75.7  "ssh appuser@10.128.0.34"'`
+`alias ssh_someinternalhost='ssh -t -A appuser@51.250.75.7  "ssh appuser@10.128.0.34"'`
 
 then, we perform the command to set the alias:
 `source ~/.bash_profile`
 
-and here we go, we can use this `ssh_internalhost` command to connect to internal host.
+and here we go, we can use this `ssh_someinternalhost` command to connect to internal host.
 
 ------------------------------------------------------
 To make it look like normal host and like normal SSH command, we can do the following:
@@ -54,17 +60,17 @@ To make it look like normal host and like normal SSH command, we can do the foll
 we can add the following line to `~/.bash_profile`:<br>
 
 ```
-alias internalhost='-t -A appuser@51.250.75.7  "ssh appuser@10.128.0.34"'
+alias someinternalhost='-t -A appuser@51.250.75.7  "ssh appuser@10.128.0.34"'
 alias ssh='ssh '
 ```
 this little trick allows us to use alias as a parameter for ssh.
-thus, ssh internalhost will connect us to internalhost, even without establishing a tunnel.
+thus, ssh someinternalhost will connect us to someinternalhost, even without establishing a tunnel.
 
 ------------------------------------------------------
-another approach that we could use, is to add creating the tunnel `localhost:2222` <-> `internalhost`, and then modify `.ssh/config` like this:
+another approach that we could use, is to add creating the tunnel `localhost:2222` <-> `someinternalhost`, and then modify `.ssh/config` like this:
 
 ```
-Host internalhost
+Host someinternalhost
     Hostname 127.0.0.1
     Port 2222
     User appuser
@@ -79,13 +85,13 @@ Host bastion
     HostName 51.250.75.7
     User appuser
 
-Host internalhost
+Host someinternalhost
     HostName 10.128.0.34
     User appuser
     ProxyCommand ssh bastion nc -q0 %h 22
 ```
 
-`ProxyCommand`: specifies a command to use as a proxy to reach the `internalhost`.
+`ProxyCommand`: specifies a command to use as a proxy to reach the `someinternalhost`.
 This configuration indicates that the SSH connection should first connect to a `bastion` host
-and then use the `nc` command to forward the connection to the `internalhost` at port 22.
-`%h` is a placeholder that will be replaced with the actual hostname of the `internalhost`.
+and then use the `nc` command to forward the connection to the `someinternalhost` at port 22.
+`%h` is a placeholder that will be replaced with the actual hostname of the `someinternalhost`.
