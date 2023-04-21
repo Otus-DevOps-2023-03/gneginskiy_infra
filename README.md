@@ -13,6 +13,7 @@ Command to log into bastion host and enable forwarding of the authentication age
 
 Once we connected to bastion, then we can connect to internal host: <br>
 `ssh appuser@10.128.0.34`
+
 ------------------------------------------------------
 #### Connecting to the internal host via bastion in a single command
 
