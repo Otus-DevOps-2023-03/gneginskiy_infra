@@ -5,8 +5,11 @@
 
 ------------------------------------------------------
 
-**bastion_IP = 51.250.75.7**<br>
-**someinternalhost_IP = 10.128.0.34**
+bastion_IP = 51.250.75.7
+
+someinternalhost_IP = 10.128.0.34
+
+<br>
 
 VPN server admin panel: [51.250.75.7.sslip.io](51.250.75.7.sslip.io)
 
