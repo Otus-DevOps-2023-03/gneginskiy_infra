@@ -8,6 +8,8 @@
 **bastion_IP = 51.250.75.7**<br>
 **someinternalhost_IP = 10.128.0.34**
 
+VPN server admin panel: [51.250.75.7.sslip.io](51.250.75.7.sslip.io)
+
 ------------------------------------------------------
 
 #### Connecting to the internal host via bastion:
