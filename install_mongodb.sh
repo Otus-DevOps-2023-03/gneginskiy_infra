@@ -6,13 +6,11 @@ sudo apt-get update
 sudo apt-get install -y mongodb-org
 sudo systemctl enable mongod
 sudo systemctl start mongod
-sudo systemctl status mongod | grep active
 
 sudo systemctl enable mongodb
 sudo systemctl start mongodb
-sudo systemctl status mongodb | grep active
 
-#
+# 8 errors:...
 #
 ##!/bin/bash
 #
