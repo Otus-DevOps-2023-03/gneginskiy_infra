@@ -5,7 +5,9 @@ echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongod
 sudo apt-get update
 sudo apt-get install -y mongodb-org
 sudo service mongod start
+sudo service mongod enable
 sudo service mongodb start
+sudo service mongodb enable
 
 #7 errors:
 #!/bin/sh
