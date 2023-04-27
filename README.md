@@ -1,4 +1,8 @@
 # gneginskiy_infra
+#### Homework for Lecture #6: Yandex Cloud key services
+
+testapp_IP = 35.198.167.169
+testapp_port = 9292
 
 ------------------------------------------------------
 #### Homework for Lecture #5: Introduction to Cloud Infrastructure and Cloud Services
