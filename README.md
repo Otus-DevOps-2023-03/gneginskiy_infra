@@ -1,4 +1,14 @@
 # gneginskiy_infra
+#### Homework for lecture #7: Packer
+how to validate packer template:
+
+`packer validate -var-file=variables.json.example ubuntu16.json`
+
+how to run packer template with user vars:
+
+`packer build -var-file=variables.json ./ubuntu16.json `
+
+
 #### Homework for Lecture #6: Yandex Cloud key services
 
 testapp_IP = 158.160.54.245
