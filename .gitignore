@@ -1,5 +1,4 @@
 /.idea/
-
 /terraform/*.tfstate
 /terraform/*.tfstate.*.backup
 /terraform/*.tfstate.backup
@@ -7,3 +6,4 @@
 /terraform/*.hcl
 /terraform/.terraform/
 /terraform/.terraform.tfstate.lock.info
+/packer/variables.json
