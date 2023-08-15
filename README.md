@@ -1,4 +1,20 @@
 # gneginskiy_infra
+#### Homework for lecture #8: Terraform
+
+```terraform init```  to initialize terraform repo
+
+```terraform plan ```to look at what happens when we run main.tf
+
+```terraform apply``` to apply main.tf and create infrastructure.
+
+```terraform show | grep nat_ip_address``` to show nat_ip_address from terraform.tfstate file
+
+```terraform destroy``` to destroy infra
+
+```terraform refresh```  to update outputs
+
+```terraform output external_ip_address_app``` shows output with the key ...
+
 #### Homework for lecture #7: Packer
 how to validate packer template:
 
