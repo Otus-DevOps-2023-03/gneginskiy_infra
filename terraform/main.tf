@@ -1,11 +1,13 @@
-terraform {
-  required_providers {
-    yandex = {
-      source  = "yandex-cloud/yandex"
-      version = "0.89.0"
-    }
-  }
-}
+#this didn't work for tests:
+
+#terraform {
+#  required_providers {
+#    yandex = {
+#      source  = "yandex-cloud/yandex"
+#      version = "0.89.0"
+#    }
+#  }
+#}
 
 provider "yandex" {
   token     = var.token
