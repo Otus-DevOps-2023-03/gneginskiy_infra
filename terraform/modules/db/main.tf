@@ -21,7 +21,7 @@ resource "yandex_compute_instance" "db" {
     tags = "reddit-db"
   }
   resources {
-    cores = 2
+    cores  = 2
     memory = 2
   }
   boot_disk {
@@ -32,9 +32,9 @@ resource "yandex_compute_instance" "db" {
 
   network_interface {
     subnet_id = var.subnet_id
-    nat = true
+    nat       = true
   }
-#  yandex_vpc_subnet.app-subnet.id
+  #  yandex_vpc_subnet.app-subnet.id
 
   metadata = {
     ssh-keys = "ubuntu:${file(var.public_key_path)}"
