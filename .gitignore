@@ -7,3 +7,15 @@
 /terraform/.terraform/
 /terraform/.terraform.tfstate.lock.info
 /packer/variables.json
+/terraform/prod/terraform.tfvars
+/terraform/stage/terraform.tfvars
+/terraform/prod/.terraform/
+/terraform/prod/.terraform.lock.hcl
+/terraform/stage/.terraform/
+/terraform/stage/.terraform.lock.hcl
+/terraform/stage/.terraform.tfstate.lock.info
+/terraform/stage/terraform.tfstate
+/terraform/stage/terraform.tfstate.backup
+/terraform/prod/.terraform.tfstate.lock.info
+/terraform/prod/terraform.tfstate
+/terraform/prod/terraform.tfstate.backup
