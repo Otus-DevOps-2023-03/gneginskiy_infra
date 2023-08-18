@@ -12,6 +12,10 @@ write app.tf and db.tf, then split it into modules with their own main.tf, varia
 then run to load modules the following command:
 ```terraform get```
 
+run from prod and stage directories to create resources on yc:
+```terraform apply```
+
+
 #### Homework for lecture #8: Terraform-1
 
 ```terraform init```  to initialize terraform repo
