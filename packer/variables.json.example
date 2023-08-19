@@ -1,8 +1,9 @@
 {
     "folder_id": "b1g90djucp4v6vt60ie0",
-    "image_name": "reddit-base-{{timestamp}}",
-    "service_account_key_file": "./service_account_key.json.example",
+    "service_account_key_file": "../yc_editor_key.json",
     "source_image_family": "ubuntu-1604-lts",
     "image_family":"reddit-base",
     "subnet_id": "your_subnet_id"
 }
+
+# "service_account_key_file": "../../../../yc_editor_key.json",

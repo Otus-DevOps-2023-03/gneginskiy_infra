@@ -1,5 +1,22 @@
 # gneginskiy_infra
-#### Homework for lecture #8: Terraform
+#### Homework for lecture #9: Terraform-2
+creating 2 images for the app and for DB respectively:
+
+```packer validate -var-file=variables.json.example db.json ```
+```packer validate -var-file=variables.json.example app.json ```
+```packer build -var-file=variables.json.example db.json ```
+```packer build -var-file=variables.json.example app.json ```
+
+write app.tf and db.tf, then split it into modules with their own main.tf, variables.tf and outputs.tf
+
+then run to load modules the following command:
+```terraform get```
+
+run from prod and stage directories to create resources on yc:
+```terraform apply```
+
+
+#### Homework for lecture #8: Terraform-1
 
 ```terraform init```  to initialize terraform repo
 
