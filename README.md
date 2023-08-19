@@ -1,5 +1,31 @@
 # gneginskiy_infra
-#### Homework for lecture #9: Terraform-2
+### Homework for lecture #10: Ansible-1
+Whereas Terraform is responsible for creating VMs and accompanying infrastructure,
+Ansible allows to set things up on previously created VMs.
+
+>The line below removes reddit cloned repository from app server:
+>>`ansible app -m command -a 'rm -rf ~/reddit'`
+
+##### ping
+```ansible appserver -i ./inventory -m ping```
+
+```ansible dbserver -i ./inventory -m ping```
+
+##### remote commands executions :
+```ansible appserver -m command -a uptime```
+
+```ansible dbserver -m command -a uptime  ```
+
+```ansible app -m command -a 'ruby -v'```
+
+##### remote SHELL command execution:
+```ansible app -m shell -a 'ruby -v; bundler -v'```
+
+##### running a playbook (which could be a sequence of commands otherwise)
+```ansible-playbook clone.yml```
+
+
+### Homework for lecture #9: Terraform-2
 creating 2 images for the app and for DB respectively:
 
 ```packer validate -var-file=variables.json.example db.json ```
@@ -16,7 +42,7 @@ run from prod and stage directories to create resources on yc:
 ```terraform apply```
 
 
-#### Homework for lecture #8: Terraform-1
+### Homework for lecture #8: Terraform-1
 
 ```terraform init```  to initialize terraform repo
 
@@ -32,7 +58,7 @@ run from prod and stage directories to create resources on yc:
 
 ```terraform output external_ip_address_app``` shows output with the key ...
 
-#### Homework for lecture #7: Packer
+### Homework for lecture #7: Packer
 how to validate packer template:
 
 `packer validate -var-file=variables.json.example ubuntu16.json`
