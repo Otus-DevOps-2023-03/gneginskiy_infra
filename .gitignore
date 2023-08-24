@@ -19,3 +19,5 @@
 /terraform/prod/.terraform.tfstate.lock.info
 /terraform/prod/terraform.tfstate
 /terraform/prod/terraform.tfstate.backup
+
+*.retry

@@ -1,4 +1,9 @@
 # gneginskiy_infra
+### Homework for lecture #11: Ansible-2
+to run checks against the ansible scenario
+>`ansible-playbook reddit_app.yml --check --limit db`
+
+
 ### Homework for lecture #10: Ansible-1
 Whereas Terraform is responsible for creating VMs and accompanying infrastructure,
 Ansible allows to set things up on previously created VMs.
