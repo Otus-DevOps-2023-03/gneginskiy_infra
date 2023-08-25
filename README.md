@@ -1,8 +1,13 @@
 # gneginskiy_infra
 ### Homework for lecture #11: Ansible-2
-to run checks against the ansible scenario
+to run checks against the ansible scenario using "db" host only:
 >`ansible-playbook reddit_app.yml --check --limit db`
 
+to run every task marked with the `app-tag` tag:
+>`ansible-playbook reddit_app2.yml --tags app-tag`
+
+to run batch playbooks:
+>`ansible-playbook site.yml`
 
 ### Homework for lecture #10: Ansible-1
 Whereas Terraform is responsible for creating VMs and accompanying infrastructure,
