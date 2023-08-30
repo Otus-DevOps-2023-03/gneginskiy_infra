@@ -1,0 +1,31 @@
+- name: Add apt key
+  apt_key:
+    url: https://www.mongodb.org/static/pgp/server-5.0.asc
+    state: present
+  tags: install
+
+- name: Add apt repository
+  apt_repository:
+    repo: deb https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/5.0 multiverse
+  tags: install
+
+- name: Install MongoDB
+  apt:
+    name: mongodb
+    state: present
+    update_cache: true
+  tags: install
+
+- name: Enable MongoDB
+  systemd:
+    name: mongodb
+    state: restarted
+    enabled: true
+  tags: install
+
+- name: Configure service supervisor
+  systemd:
+    name: mongodb
+    enabled: yes
+    state: started
+  tags: install
