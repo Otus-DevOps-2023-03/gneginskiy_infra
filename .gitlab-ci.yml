@@ -1,12 +1,13 @@
 stages:
   - build
   - test
-  - deploy
+  - review
 
 variables:
   DATABASE_URL: 'mongodb://mongo/user_posts'
 before_script:
   - cd reddit
+  - gem install bundler -v 2.3.26
   - bundle install
 
 build_job:
@@ -26,7 +27,10 @@ test_integration_job:
   script:
     - echo 'Testing 2'
 
-deploy_job:
-  stage: deploy
+deploy_dev_job:
+  stage: review
   script:
     - echo 'Deploy'
+  environment:
+    name: dev
+    url: http://dev.example.com
