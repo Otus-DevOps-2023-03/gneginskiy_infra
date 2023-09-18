@@ -1,0 +1,27 @@
+
+---------------------------------------------------------------
+yc compute instance create \
+  --name docker-host \
+  --zone ru-central1-a \
+  --network-interface subnet-name=default-ru-central1-a,nat-ip-version=ipv4 \
+  --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-1804-lts,size=50 \
+  --memory 4 \
+  --cores 4 \
+  --ssh-key ~/.ssh/grich.pub
+
+#setting up a docker-machine agent there.
+docker-machine create \
+  --driver generic \
+  --generic-ip-address=130.193.39.5 \
+  --generic-ssh-user yc-user \
+  --generic-ssh-key ~/.ssh/grich \
+  docker-host
+
+ssh -i ~/.ssh/grich yc-user@130.193.39.5
+sudo apt-get install docker-compose
+sudo su
+pwd location:
+cat ./config/initial_root_password
+pwd: N/2ks4jhXx+CmhwKJ2PN+azOnHkUGEjnV7kDCbONuVM=
+
+git remote add gitlab http://130.193.39.5/homework/example.git
