@@ -1,4 +1,24 @@
 # gneginskiy_infra
+### Homework for lecture #13: ansible-4 & vagrant
+
+Managed to run vagrant on M1:
+
+- Follow the steps from the article: https://habr.com/ru/companies/bar/articles/708950/
+- run vmware, get a free or trial license. then, quit application
+- write a new vagrantfile, example: https://pastebin.com/HKQTYBYx
+- run vagrant up from the directory with vagrantfile
+
+to run vagrant infra:
+>vagrant up
+
+to see current status of the boxes:
+>vagrant status
+
+to connect to the server using ssh (where appserver is vm name described in vagrantfile)
+>vagrant ssh appserver
+
+### Homework for lecture #12: ansible-3
+
 ### Homework for lecture #11: Ansible-2
 to run checks against the ansible scenario using "db" host only:
 >`ansible-playbook reddit_app.yml --check --limit db`
