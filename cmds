@@ -1,0 +1,53 @@
+
+---------------------------------------------------------------
+yc compute instance create \
+  --name docker-host \
+  --zone ru-central1-a \
+  --network-interface subnet-name=default-ru-central1-a,nat-ip-version=ipv4 \
+  --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-1804-lts,size=50 \
+  --memory 4 \
+  --cores 4 \
+  --ssh-key ~/.ssh/grich.pub
+
+#setting up a docker-machine agent there.
+docker-machine create \
+  --driver generic \
+  --generic-ip-address=130.193.39.5 \
+  --generic-ssh-user yc-user \
+  --generic-ssh-key ~/.ssh/grich \
+  docker-host
+
+ssh -i ~/.ssh/grich yc-user@130.193.39.5
+sudo apt-get install docker-compose
+sudo su
+pwd location:
+cat ./config/initial_root_password
+pwd: N/2ks4jhXx+CmhwKJ2PN+azOnHkUGEjnV7kDCbONuVM=
+
+git remote add gitlab http://130.193.39.5/homework/example.git
+
+registration token: GR1348941pPTitpGsD88sRRNXJnJZ
+
+#run a runner:
+docker run -d --name gitlab-runner --restart always
+-v /srv/gitlabrunner/config:/etc/gitlab-runner
+-v /var/run/docker.sock:/var/run/docker.sock
+gitlab/gitlab-runner:latest
+
+#registering a runner:
+docker exec -it gitlab-runner gitlab-runner register \
+ --url http://130.193.39.5/ \
+ --non-interactive \
+ --locked=false \
+ --name DockerRunner \
+ --executor docker \
+ --docker-image alpine:latest \
+ --registration-token GR1348941pPTitpGsD88sRRNXJnJZ \
+ --tag-list "linux,xenial,ubuntu,docker" \
+ --run-untagged
+
+
+ git clone https://github.com/express42/reddit.git && rm -rf ./reddit/.git
+ git add reddit/
+ git commit -m "Add reddit app"
+ git push gitlab gitlab-ci-1
